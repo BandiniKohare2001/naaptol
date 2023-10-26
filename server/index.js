@@ -16,7 +16,20 @@ const connectMongoDB = async () => {
   }
 };
 connectMongoDB();
+app.get('/login', async (req, res)=> {
+    const {email, password} = req.body;
 
+    const user = await User.findOne({
+        email: email, 
+        password: password
+    })
+  
+    res.json({
+      success: true,
+      data: user,
+      message: 'login Successfully',
+    })
+})
 app.post('/signup', async (req, res) => {
     const { name, email, mobile, password , address, gender} = req.body;
     const obj = new User({
