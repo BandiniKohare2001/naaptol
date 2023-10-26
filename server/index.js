@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import express from "express";
 import dotenv from "dotenv";
+import User from "./models/User.js";
 dotenv.config();
 
 const app = express();
@@ -15,6 +16,26 @@ const connectMongoDB = async () => {
   }
 };
 connectMongoDB();
+
+app.post('/signup', async (req, res) => {
+    const { name, email, mobile, password , address, gender} = req.body;
+    const obj = new User({
+        name: name,
+        email: email,
+        mobile:mobile,
+        password: password,
+        address: address,
+        gender: gender
+      })
+    
+      const saveUser = await obj.save();
+    
+      res.json({
+        success: true,
+        data: saveUser,
+        message: 'Sign up Successfully',
+      })
+})
 
 
 app.listen(5000, () => {
