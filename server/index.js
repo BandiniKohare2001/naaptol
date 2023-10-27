@@ -17,6 +17,7 @@ const connectMongoDB = async () => {
   }
 };
 connectMongoDB();
+
 app.get('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -104,54 +105,64 @@ app.post('/bandini', async (req, res) => {
 
 
 // GET  /product/:id
-// app.get('/product', async (res, req) => {
-//   const { id } = req.params;
-//   const findOneProduct = await Product.findOne({ _id: id })
-//   res.json({
-//     success: true,
-//     data: findOneProduct,
-//     message: " Successfully find one Product"
-//   })
-// })
+app.get('/product', async (req, res) => {
+  const { id } = req.params;
+  const findOneProduct = await Product.findOne({ _id: id })
+  res.json({
+    success: true,
+    data: findOneProduct,
+    message: " Successfully find one Product"
+  })
+})
 
 
 // // PUT / product/id (UPDATE)
-// app.put('/product', async (res, req) => {
-//   const { id } = req.params;
-//   const { name, description, price, category, brand, image } = req.body
+app.put('/product', async (res, req) => {
+  const { id } = req.params;
+  const { title, description, price, category, brand, image } = req.body
 
-//   const updateProduct = await Product.updateOne({ _id: id },
-//     {
-//       $set: {
-//         name: name,
-//         description: description,
-//         price: price,
-//         category: category,
-//         brand: brand,
-//         image: image
-//       }
-//     })
+  const updateProduct = await Product.updateOne({ _id: id },
+    {
+      $set: {
+        title: title,
+        description: description,
+        price: price,
+        category: category,
+        brand: brand,
+        image: image
+      }
+    })
 
-//     res.json({
-//       success:true,
-//       data:updateProduct,
-//       message:"product update successfully"
-//     })
-// })
+    res.json({
+      success:true,
+      data:updateProduct,
+      message:"product update successfully"
+    })
+})
 // DELETE/ product/id
-// app.delete('/product', async (res, req)=>{
-//   const {id}=req.params;
-//   const deleteProduct =  await Product.deleteOne({_id: id})
-//   res.json({
-//     success: true,
-//     message:"Delete One Product Successfully"
-//   })
-// })
+app.delete('/product', async (req, res)=>{
+  const {id}=req.params;
+  const deleteProduct =  await Product.deleteOne({_id: id})
+  res.json({
+    success: true,
+    message:"Delete One Product Successfully"
+  })
+})
 
 // GET /products/search/:id/query=name
-// app.get('product', async (res, req)=>{
-// const {id}= req.query;
-// })
+app.get('/searchproduct', async(req,res)=>{
+  const {q}=req.query
+
+  const searchproduct=await Products.findOne({name:{$regex:q, $options:'i'}})
+   res.json({
+    sucess:true,
+    products:searchproduct,
+    message:"product searched successfully"
+  })
+ 
+
+})
+
 
 
 app.listen(8080, () => {
