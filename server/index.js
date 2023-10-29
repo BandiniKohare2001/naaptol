@@ -203,7 +203,69 @@ app.get('/searchproduct', async (req, res) => {
   })
 })
 
+// //  ----------create  orders -------
 
+app.post('/orders', async(req,res)=>{
+  
+  const {user, product , quantity , shipping_address , delivery_charges , status}=req.body
+  const Orders=new Order({
+    user:user,
+    product:product,
+    quantity:quantity,
+    shipping_address:shipping_address,
+    delivery_charges:delivery_charges,
+    status:status
+  })
+
+  const savedOrders= await Orders.save()
+  res.json({
+    success:true,
+    Order:savedOrders,
+    message:" Order created successfully"
+
+  })
+
+})
+// ----------get all orders -----------
+app.get('/orders', async(req,res)=>{
+  const Orders= await Order.find().populate('user  product')
+  Orders.forEach((order)=>{
+    order.user.password=undefined
+  })
+
+  res.json({
+    success:true,
+    orders:Orders,
+    message:"order fetched successfully"
+  })
+})
+// ---------get by user-----------
+app.get('/byuserid/:_id', async(req,res)=>{
+  const {_id}=req.params
+  const findOrders= await Order.find({user:{_id:_id}}).populate('user  product')
+  findOrders.forEach((order)=>{
+    order.user.password=undefined
+  })
+  res.json({
+    success:true,
+    Order:findOrders,
+    message:" Order of user founds successfully"  
+  })
+})
+
+// -------------update-status--------
+app.patch('/updateorder/:_id',async(req,res)=>{
+  const {_id}=req.params
+  const {status}=req.body
+  
+   await Order.updateOne({_id:_id},{$set:{status:status}})
+  const updatedOrder= await Order.findOne({_id:_id})
+  res.json({
+    success:true,
+    order:updatedOrder,
+    message:"order updated successfully"
+  })
+})
 
 app.listen(8080, () => {
   console.log(`Server is running on port 8080`);
