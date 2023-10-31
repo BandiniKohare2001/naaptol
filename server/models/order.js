@@ -21,10 +21,6 @@ const orderSchema = new Schema({
     deliveryCharges:{
         type: Number,
         default: 0
-    },
-    status:{
-        type: String,
-        default: "pending"
     }
 },{
     timestamps: true,
