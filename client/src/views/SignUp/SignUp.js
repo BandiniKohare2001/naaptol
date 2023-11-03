@@ -25,9 +25,9 @@ export default function SignUp() {
         gender: gender
       } )
       alert(response?.data?.message);
-    //   if(response?.data?.success){
-    //     // window.location.href = "/login";
-    //   }
+      if(response?.data?.success){
+        window.location.href = "/login";
+      }
      
     }
 
@@ -35,7 +35,7 @@ export default function SignUp() {
         <>
             <div>
                 <form className="signup-form">
-                    <h1 className="text-center">SignUp</h1>
+                  
                     <div>
                         <label htmlFor="name">Name</label>
                         <input type="text"
