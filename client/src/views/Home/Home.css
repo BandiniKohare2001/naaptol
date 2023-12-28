@@ -1,0 +1,33 @@
+
+/* .product-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 60px 10%;
+    gap: 60px;
+    flex-wrap: wrap;
+    
+    } */
+    .bac-color{
+        background-color: white;
+        height: auto;
+    }
+.card-div{
+    display: flex;
+    justify-content: space-evenly;
+}
+.poster{
+   margin: auto;
+   margin-left: 130px;
+   margin-right: 100px;
+   margin-top: 50px;
+   box-shadow: 1px 1px 5px 1px gray;
+
+}
+.marqee-div{
+    background-color: green;
+    padding: 7px;
+    padding-left: 100px;
+    padding-right: 100px;
+    color: white;
+}

@@ -2,7 +2,8 @@ import mongoose from "mongoose";
 import express from "express";
 import dotenv from "dotenv";
 import User from "./models/User.js";
-import Product from "./models/product.js";
+import Product from './models/Product.js'
+import Order from "./models/Order.js";
 dotenv.config();
 
 const app = express();
@@ -70,7 +71,7 @@ app.post('/signup', async (req, res) => {
 
 //-----------------fetch all products----------------
 app.get('/products', async (req, res) => {
-  const products = await Product.find()
+  const products = await Product.find({})
   res.json({
     success: true,
     data: products,
@@ -106,16 +107,16 @@ app.post('/bandini', async (req, res) => {
 
 
 
-//------------find one product by id ----------------
-app.get('/product', async (req, res) => {
-  const { _id } = req.params;
-  const findOneProduct = await Product.findOne({ _id: _id })
-  res.json({
-    success: true,
-    data: findOneProduct,
-    message: "Successfully find one Product"
-  })
-})
+// //------------find one product by id ----------------
+// app.get('/product', async (req, res) => {
+//   const { _id } = req.params;
+//   const findOneProduct = await Product.findOne({ _id: _id })
+//   res.json({
+//     success: true,
+//     data: findOneProduct,
+//     message: "Successfully find one Product"
+//   })
+// })
 
 // app.get('/product', async (req, res) => {
 //   const { name } = req.query
@@ -127,7 +128,7 @@ app.get('/product', async (req, res) => {
 //   })
 // })
 
-//------------- update product by id---------------
+// //------------- update product by id---------------
 
 app.put('/product/:_id', async (req, res) => {
   const { _id } = req.params
@@ -182,39 +183,42 @@ app.put('/product/:_id', async (req, res) => {
 
 })
 
-//------------- DELETE product by id------------------
-app.delete('/product', async (req, res) => {
-  const { id } = req.params;
-  const deleteProduct = await Product.deleteOne({ _id: id })
+// //------------- DELETE product by id------------------
+app.delete('/product/:_id', async (req, res) => {
+  const { _id } = req.params;
+  const deleteProduct = await Product.deleteOne({ _id: _id })
   res.json({
     success: true,
+    data: deleteProduct,
     message: "Delete One Product Successfully"
   })
 })
 
-// ---------------search all products-----------------------
+// // ---------------search all products-----------------------
+
 app.get('/searchproduct', async (req, res) => {
-  const { q } = req.query
-  const searchproduct = await Product.findOne({ name: { $regex: q, $options: 'i' } })
+  const { q } = req.query;
+
+  const searchProduct = await Product.find({ name: { $regex: q, $options: 'i' } })
+
   res.json({
-    sucess: true,
-    products: searchproduct,
-    message: "product searched successfully"
+      success: "true",
+      data: searchProduct,
+      message: "Product find succesfully..!"
   })
 })
 
-// //  ----------create  orders -------
+//  ----------create  orders -------
 
 app.post('/orders', async(req,res)=>{
   
-  const {user, product , quantity , shipping_address , delivery_charges , status}=req.body
-  const Orders=new Order({
+  const {user, product , quantity , shipping_address , delivery_charges     }=req.body
+  const Orders = new Order({
     user:user,
     product:product,
     quantity:quantity,
     shipping_address:shipping_address,
-    delivery_charges:delivery_charges,
-    status:status
+    delivery_charges:delivery_charges
   })
 
   const savedOrders= await Orders.save()
@@ -226,12 +230,12 @@ app.post('/orders', async(req,res)=>{
   })
 
 })
-// ----------get all orders -----------
+// // ----------get all orders -----------
 app.get('/orders', async(req,res)=>{
   const Orders= await Order.find().populate('user  product')
   Orders.forEach((order)=>{
     order.user.password=undefined
-  })
+  })    
 
   res.json({
     success:true,
@@ -239,7 +243,7 @@ app.get('/orders', async(req,res)=>{
     message:"order fetched successfully"
   })
 })
-// ---------get by user-----------
+// // ---------get by user-----------
 app.get('/byuserid/:_id', async(req,res)=>{
   const {_id}=req.params
   const findOrders= await Order.find({user:{_id:_id}}).populate('user  product')
@@ -253,7 +257,7 @@ app.get('/byuserid/:_id', async(req,res)=>{
   })
 })
 
-// -------------update-status--------
+// // -------------update-status--------
 app.patch('/updateorder/:_id',async(req,res)=>{
   const {_id}=req.params
   const {status}=req.body
@@ -266,7 +270,7 @@ app.patch('/updateorder/:_id',async(req,res)=>{
     message:"order updated successfully"
   })
 })
-
-app.listen(8080, () => {
-  console.log(`Server is running on port 8080`);
+const PORT =5000 || process.env.PORT
+app.listen(PORT, () => {
+  console.log(`Server is running on port 5000`);
 });

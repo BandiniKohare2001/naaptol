@@ -2,7 +2,7 @@ import { Schema, model } from "mongoose";
 
 const orderSchema = new Schema({
     user:{
-        type: Schema.Typesype.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "user",
         required: true
     },
@@ -26,4 +26,4 @@ const orderSchema = new Schema({
     timestamps: true,
 })
 const Order = model('Order', orderSchema)
-export default order;
+export default Order;

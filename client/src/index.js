@@ -3,22 +3,34 @@ import './index.css';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import LogIn from './views/LogIn/LogIn';
 import SignUp from './views/SignUp/SignUp';
+import Home from './views/Home/Home';
+import MyOrder from './views/MyOrder/MyOrder';
+import PlaceOrder from './views/PlaceOrder/PlaceOrder';
 
-
-const router = createBrowserRouter([
+const router=createBrowserRouter([
   {
-    path: '/',
-    element: <h1>Home</h1>
+      path:'/login',
+      element:<LogIn/>
   },
   {
-    path: '/signup',
-    element: <SignUp />
+      path:'/singup',
+      element:<SignUp/>
   },
   {
-    path: '/login',
-    element: <LogIn />
-  }
+      path:'/',
+      element:<Home />
+  },
+  {
+      path:'/placeorder/:_id',
+      element:<PlaceOrder/>
+  },
+  {
+      path:'/myorder',
+      element:<MyOrder/>
+  },
 ])
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

@@ -12,7 +12,7 @@ code {
     monospace;
 }
 body{
-  background-color: #e6f3ff;;
+  /* background-color: #e6f3ff !important; */
 }
 .text-center{
   text-align: center;
@@ -24,12 +24,26 @@ body{
   width: 250px;
   margin-bottom: 15px;
 }
-.btn{
+.btn-2{
+  background-color: green; 
+  color: white;
+  border: none;
+ font-size: 17px;
+  min-width: 120px;
+  padding: 10px 20px;
+  text-align: center;
+
+}
+.btn-1{
   background-color: blue; 
   color: white;
   border: none;
-  border-radius: 10px;
-  min-width: 130px;
+  min-width: 120px;
   padding: 10px 20px;
   text-align: center;
+  /* margin-left: 8px; */
+  font-size: 17px;
+}
+.text-right{
+  text-align: right;
 }

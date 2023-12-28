@@ -1,0 +1,80 @@
+.ordercard{
+    width:90vw;
+    height: 300px;
+    box-shadow: 0 0 10px 2px rgb(92, 89, 89);
+    display: flex;
+    margin: 20px auto;
+    
+}
+
+.orderchild1{
+   width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ordercardimg{
+    width: 80%;
+    height: 80%;
+    display: block;
+    margin: auto;
+}
+.orderchild2{
+    width: 50%;
+    height: 100%;
+   
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; */
+    padding-left: 20px;
+}
+.orderchild2 div{
+    font-size: 30px;
+   
+    margin-top: 15px;
+
+}
+.prodname{
+    color: blue;
+    font-weight: bold;
+}
+.quntity{
+    color: green;
+}
+.price{
+    color: red;
+}
+.qunpri{
+    display: flex;
+}
+.qunpri div{
+    margin-right: 20px;
+}
+
+.orderchild3{
+    width: 30%;
+    height: 100%;
+
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    }
+    .orderchild3 div{
+        /* background-color: green; */
+        display: inline-block;
+        color: white;
+        margin: 10px;
+        font-size: 30px;
+        padding: 5px;
+    }
+    .status_danger{
+        background-color: red;
+
+    }
+    .status_warning{
+        background-color: yellow !important;
+    }
+    .status_success{
+        background-color: green;
+    }

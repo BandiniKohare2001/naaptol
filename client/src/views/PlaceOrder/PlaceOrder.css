@@ -1,0 +1,65 @@
+
+.place-or-container{
+    width: 100vw;
+    height: 100vh;
+    /* background-color: wheat; */
+    display: flex;
+}
+.placed-pr-img{
+    width: 700px;
+
+}
+.placed-pr-name{
+    font-size: 40px;
+    margin-left: 20px;
+    margin-top: 100px;
+
+}
+.Placed-pr-des{
+    font-size: 20px;
+    padding: 10px 25px;
+   
+}
+.place-or-child{
+    width: 50%;
+    height: 100%;
+}
+
+.placed-or-price{
+    font-size: 50px;
+    color: black;
+    text-align: start;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.quntity-of-or{
+    margin-top: 20px;
+}
+.quntity{
+    font-size: 40px;
+    padding: 0 10px;
+}
+.quntity-btn{
+box-shadow: 0 0 5px 1px rgba(0, 0, 0,0.3);
+   display: inline-block;
+   text-align: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 40px;
+    cursor: pointer;
+}
+.address-field{
+    width: 400px;
+    height: 40px;
+    margin-top: 5px;
+    font-size: 30px;
+    padding-left: 20px;
+    font-size: 20px;
+    margin-top: 20px;
+
+}
+.placed-or-btn{
+
+    margin-top: 100px;
+}

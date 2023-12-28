@@ -1,0 +1,55 @@
+.navbar{
+    height: 60px;
+/* background-color: tomato; */
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1.5rem;
+color: white;
+}
+
+.navbar .logo{
+    font-size: 30px;
+    margin-left: 20px;
+    padding-top:10px;
+
+}
+.navbar ul{
+    display: flex;
+    margin-left: auto;
+
+}
+.navbar ul li{
+    margin: 0 25px;
+    list-style: none;
+}
+.navlink{
+    font-size: 18px;
+    /* color: white; */
+    text-decoration: none;
+}
+.navbar .user span{
+    margin-right: 40px;
+    font-size: 25px;
+    color: tomato;
+}
+.logout-btn{
+    background-color: white;
+    color: black;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.input-search{
+    height: 30px;
+    width: 500px;
+    padding: 5px;
+    border-radius: 30px;
+    margin-left: 150px;
+    padding-left: 10px;
+    font-size: 15px;
+    /* border: none; */
+}

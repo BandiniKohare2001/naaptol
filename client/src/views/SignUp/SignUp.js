@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios'
+import { Link } from "react-router-dom";
 import "./SignUp.css"
 
 export default function SignUp() {
@@ -125,9 +126,12 @@ export default function SignUp() {
 
 
                     <button type="button" 
-                    className="btn signup-btn"
+                    className="btn-1 signup-btn"
                     onClick={signup}
                     >Register</button>
+                    <p className="text-right">You have already register? &nbsp;
+                        <Link to="/login" >Login</Link>
+                    </p>
                 </form>
             </div>
         </>
