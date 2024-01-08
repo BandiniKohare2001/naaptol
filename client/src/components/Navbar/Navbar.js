@@ -56,6 +56,7 @@ onChange={(e)=>{
         <li><Link  className='navlink'  to={'/singup'}>Singup</Link></li>
         <li><Link  className='navlink' to={'/login'}>Login</Link></li>
         <li><Link  className='navlink' to={'/myorder'}>My Order</Link></li>
+        <li><Link  className='navlink' to={'/addtocart'}>Cart</Link></li>
         
       </ul>
       <div className='user'>

@@ -26,10 +26,10 @@ useEffect(()=>{
     const loaddata=()=>{
         const response =JSON.parse(localStorage.getItem("user"))
         setUser(response)
-        if(response==null){
-            alert('you are not login yet ')
-            window.location.href='/login'
-          }
+        // if(response==null){
+        //     alert('you are not login yet ')
+        //     window.location.href='/login'
+        //   }
     }
     useEffect(()=>{
         loaddata()

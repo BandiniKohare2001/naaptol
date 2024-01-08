@@ -45,8 +45,8 @@ color: white;
 }
 .input-search{
     height: 30px;
-    width: 500px;
-    padding: 5px;
+    width: 300px;
+    /* padding: 5px; */
     border-radius: 30px;
     margin-left: 150px;
     padding-left: 10px;

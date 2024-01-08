@@ -52,11 +52,14 @@ function Home () {
      productsData()
   }, [])
 
+  
+  
+
     return(
        <>
       <Navbar/>
       
-      <div className="marqee-div">
+   <div className="marqee-div">
         
       <Marquee>Don't deposit money or share financial info to anyone claiming to offer reward / lucky draw prize on behalf of Naaptol. Please note we have no relation with NAAPTOLINDIA.COM or any other company having similar names. NAAPTOLINDIA.COM is doing fraud by giving lucrative business offers using name of Naaptol. Please do not pay or deposit any money for any business dealings with NAAPTOLINDIA.COM</Marquee>
       </div>
@@ -64,7 +67,7 @@ function Home () {
           
 <div className="poster">
   <img src="https://layout.naptol.com/usr/local/csp/staticContent/naaptolAds/Portable-Electric-Grinder-EG1-Home-Banner-25-07-23.jpg" alt="poster"/>
-</div>
+</div> 
 
 
 

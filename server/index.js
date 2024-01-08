@@ -269,7 +269,71 @@ app.patch('/updateorder/:_id',async(req,res)=>{
     order:updatedOrder,
     message:"order updated successfully"
   })
-})
+});
+
+
+
+
+
+
+
+
+
+
+
+// Define the Product model
+// const Cart = mongoose.model('Cart', {
+//   name: String,
+//   price: Number,
+// });
+
+// // Define the Cart model
+// const CartItem = mongoose.model('CartItem', {
+//   product: { type: mongoose.Schema.Types.ObjectId, ref: 'Cart' },
+//   quantity: Number,
+// });
+
+// // Add product to the cart
+// app.post('/add-to-cart', async (req, res) => {
+//   try {
+//     const { productId, quantity } = req.body;
+
+//     // Validate input
+//     if (!productId || !quantity || quantity <= 0) {
+//       return res.status(400).json({ error: 'Invalid input' });
+//     }
+
+//     // Check if the product exists
+//     const product = await Product.findById(productId);
+//     if (!product) {
+//       return res.status(404).json({ error: 'Product not found' });
+//     }
+
+//     // Add the product to the cart
+//     const cartItem = new CartItem({ product: product._id, quantity });
+//     await cartItem.save();
+
+//     return res.status(201).json({ message: 'Item added to cart successfully' });
+//   } catch (error) {
+//     console.error(error);
+//     return res.status(500).json({ error: 'Internal Server Error' });
+//   }
+// });
+
+// // Get cart items
+// app.get('/get-cart', async (req, res) => {
+//   try {
+//     const cartItems = await CartItem.find().populate('product');
+//     return res.json({ cart: cartItems });
+//   } catch (error) {
+//     console.error(error);
+//     return res.status(500).json({ error: 'Internal Server Error' });
+//   }
+// });
+
+
+
+
 const PORT =5000 || process.env.PORT
 app.listen(PORT, () => {
   console.log(`Server is running on port 5000`);
